@@ -54,7 +54,6 @@ Verify all configurations using appropriate commands, including:
 ```bash
 show spanning-tree
 show spanning-tree summary
-show spanning-tree vlan <vlan>
 
 show etherchannel summary
 show interfaces port-channel
