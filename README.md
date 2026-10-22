@@ -13,6 +13,17 @@ Multiple redundant links between switches
 - SW1 (F0/1-2) <===> (F0/1-2) SW2
 - SW1 (F0/3-4) <===> (F0/1-2) SW3
 - SW2 (F0/3-4) <===> (F0/3-4) SW3
+  
+- PC A <---> (F0/5) SW2
+- PC B <---> (F0/5) SW3
+---
+Configure the following VLANs:
+- VLAN 124 for PC A
+- VLAN 89 for PC B
+- VLAN 50 as Native
+
+Configure switch-to-switch connections as trunk links to allow VLAN traffic to traverse the Layer 2 topology.
+> NOTE: Make sure the logical port-channel is configured under the port interface, while the trunk is configured under the logical port-channel interface. These two are different things.
 
 ---
 The STP is automatic by default in the Cisco Switch 2960. However, you still need to influence the STP election.
@@ -37,7 +48,6 @@ Bundle multiple physical links into logical Port-Channels and demonstrate the co
 Calculate the theoretical total bandwidth provided by each EtherChannel bundle based on the speed of the member interfaces.
 Compare the bandwidth of a single physical link with the aggregated bandwidth of the EtherChannel.
 
-> NOTE: Trunk is not needed for these logical port-channels since all the switches will be on the default VLAN 1. 
 ---
 ## Verification
 
@@ -46,6 +56,9 @@ Verify all configurations using appropriate commands, including:
 show spanning-tree
 show etherchannel summary
 show interfaces port-channel
+
+show vlan brief
+show interfaces trunk
 ```
 
 Perform connectivity and failover testing by:
