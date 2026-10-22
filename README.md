@@ -37,6 +37,7 @@ Bundle multiple physical links into logical Port-Channels and demonstrate the co
 Calculate the theoretical total bandwidth provided by each EtherChannel bundle based on the speed of the member interfaces.
 Compare the bandwidth of a single physical link with the aggregated bandwidth of the EtherChannel.
 
+> NOTE: Trunk is not needed for these logical port-channels since all the switches will be on the default VLAN 1. 
 ---
 ## Verification
 
