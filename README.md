@@ -35,6 +35,8 @@ Calculate the theoretical total bandwidth provided by each EtherChannel bundle b
 Compare the bandwidth of a single physical link with the aggregated bandwidth of the EtherChannel.
 
 ---
+## Verification
+
 Verify all configurations using appropriate commands, including:
 ```bash
 show spanning-tree
@@ -42,21 +44,10 @@ show etherchannel summary
 show interfaces port-channel
 ```
 
----
 Perform connectivity and failover testing by:
-
 - Verifying end-to-end communication between devices.
 - Disabling individual EtherChannel member links and confirming uninterrupted network connectivity.
 - Observing STP behavior during topology changes and link failures.
 
----
-Analyze and document the advantages of the implemented solution in terms of:
 
-Loop prevention
-Root Bridge election
-Bandwidth aggregation
-Link redundancy
-Fault tolerance
-Network availability
-Differences between PAgP and LACP
 
