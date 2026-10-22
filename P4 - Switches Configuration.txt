@@ -1,0 +1,206 @@
+=============================================================================
+SW1
+=============================================================================
+
+=============[ Escalate Mode ]=============
+
+enable
+configure terminal
+
+
+=============[ Basic Configurations ]=============
+
+hostname SW1
+
+no ip domain-lookup
+
+
+=============[ Creating VLANs ]=============
+
+vlan 89
+ name 89
+exit
+
+vlan 124 
+ name 124
+exit
+
+
+======[ Set all VLANs in SWA to treat the switch as the Root Bridge ]======
+
+spanning-tree vlan 89,124 priority 4096
+
+
+=============[ Configure Port-Channel Member]=============
+
+interface range f0/1-2
+ description Link to SW2 - Port-Channel 1
+ channel-group 1 mode desirable
+exit
+
+interface range f0/3-4
+ description Link to SW3 - Port-Channel 2
+ channel-group 2 mode desirable 
+exit
+
+
+=============[ Configure Trunk Under Port-Channel Interface ]=============
+
+interface port-channel 1
+ description PAgP Enabled
+ switchport mode trunk
+ switchport trunk allowed vlan 89,124
+exit
+
+interface port-channel 2
+ description PAgP Enabled
+ switchport mode trunk
+ switchport trunk allowed vlan 89,124
+exit
+
+
+=============[ Save Running Config (Global) ]=============
+
+do copy running-config startup-config
+
+
+
+=============================================================================
+SW2
+=============================================================================
+
+=============[ Escalate Mode ]=============
+
+enable
+configure terminal
+
+
+=============[ Basic Configurations ]=============
+
+hostname SW2
+
+no ip domain-lookup
+
+
+=============[ Creating VLANs ]=============
+
+vlan 89
+ name 89
+exit
+
+vlan 124 
+ name 124
+exit
+
+
+=============[ Configure a port as VLAN 124 ]=============
+
+interface f0/5
+ description VLAN 124 - PC A
+ switchport mode access
+ switchport access vlan 124
+exit
+
+
+=============[ Configure Port-Channel Member]=============
+
+interface range f0/1-2
+ description Link to SW1 - Port-Channel 1
+ channel-group 1 mode desirable
+exit
+
+interface range f0/3-4
+ description Link to SW3 - Port-Channel 3
+ channel-group 3 mode active
+exit
+
+
+=============[ Configure Trunk Under Port-Channel Interface ]=============
+
+interface port-channel 1
+ description PAgP Enabled
+ switchport mode trunk
+ switchport trunk allowed vlan 89,124
+exit
+
+interface port-channel 3
+ description LACP Enabled
+ switchport mode trunk
+ switchport trunk allowed vlan 89,124
+exit
+
+
+=============[ Save Running Config (Global) ]=============
+
+do copy running-config startup-config
+
+
+
+=============================================================================
+SW3
+=============================================================================
+
+=============[ Escalate Mode ]=============
+
+enable
+configure terminal
+
+
+=============[ Basic Configurations ]=============
+
+hostname SW3
+
+no ip domain-lookup
+
+
+=============[ Creating VLANs ]=============
+
+vlan 89
+ name 89
+exit
+
+vlan 124 
+ name 124
+exit
+
+
+=============[ Configure a port as VLAN 89]=============
+
+interface f0/5
+ description VLAN 89 - PC B
+ switchport mode access
+ switchport access vlan 89
+exit
+
+
+=============[ Configure Port-Channel Member]=============
+
+interface range f0/1-2
+ description Link to SW1 - Port-Channel 2
+ channel-group 2 mode desirable
+exit
+
+interface range f0/3-4
+ description Link to SW2 - Port-Channel 3
+ channel-group 3 mode active
+exit
+
+
+=============[ Configure Trunk Under Port-Channel Interface ]=============
+
+interface port-channel 2
+ description PAgP Enabled
+ switchport mode trunk
+ switchport trunk allowed vlan 89,124
+exit
+
+interface port-channel 3
+ description LACP Enabled
+ switchport mode trunk
+ switchport trunk allowed vlan 89,124
+exit
+
+
+=============[ Save Running Config (Global) ]=============
+
+do copy running-config startup-config
