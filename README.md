@@ -20,7 +20,6 @@ Multiple redundant links between switches
 Configure the following VLANs:
 - VLAN 124 for PC A
 - VLAN 89 for PC B
-- VLAN 50 as Native
 
 Configure switch-to-switch connections as trunk links to allow VLAN traffic to traverse the Layer 2 topology.
 > NOTE: Make sure the logical port-channel is configured under the port interface, while the trunk is configured under the logical port-channel interface. These two are different things.
@@ -28,7 +27,7 @@ Configure switch-to-switch connections as trunk links to allow VLAN traffic to t
 ---
 The STP is automatic by default in the Cisco Switch 2960. However, you still need to influence the STP election.
 
-Configure SW1 as the Root Bridge by modifying its bridge priority.
+Configure SW1 as the Root Bridge for all VLANs involved by modifying its bridge priority.
 Verify Root Bridge election, port roles, and port states.
 Demonstrate how STP selects optimal paths and blocks redundant links to maintain a loop-free topology.
 
