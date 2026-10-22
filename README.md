@@ -10,6 +10,10 @@ Three Cisco switches (SW1, SW2, and SW3)
 Two end devices for connectivity testing
 Multiple redundant links between switches
 
+SW1 (F0/1-2) <===> (F0/1-2) SW2
+SW1 (F0/3-4) <===> (F0/1-2) SW3
+SW2 (F0/3-4) <===> (F0/3-4) SW3
+
 ---
 The STP is automatic by default in the Cisco Switch 2960. However, you still need to influence the STP election.
 
@@ -19,13 +23,13 @@ Demonstrate how STP selects optimal paths and blocks redundant links to maintain
 
 ---
 Configure PAgP EtherChannel between:
-
-- SW1 and SW2
-- SW1 and SW3
+- SW1 (po1) <===> (po1) SW2
+- SW1 (po2) <===> (po2) SW3
 
 Configure LACP EtherChannel between:
+- SW2 (po3) <===> (po3) SW3
 
-- SW2 and SW3
+> NOTE: po means port-channel, which is a term used to describe an EtherChannel logical group. "*po1*" means port-channel 1.
 
 ---
 Bundle multiple physical links into logical Port-Channels and demonstrate the concept of bandwidth aggregation.
