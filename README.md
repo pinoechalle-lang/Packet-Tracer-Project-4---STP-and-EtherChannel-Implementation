@@ -53,6 +53,7 @@ Compare the bandwidth of a single physical link with the aggregated bandwidth of
 Verify all configurations using appropriate commands, including:
 ```bash
 show spanning-tree
+show spanning-tree vlan <vlan>
 show spanning-tree summary
 
 show etherchannel summary
