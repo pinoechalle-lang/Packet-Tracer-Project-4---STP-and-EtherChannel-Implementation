@@ -68,5 +68,6 @@ Perform connectivity and failover testing by:
 - Disabling individual EtherChannel member links and confirming uninterrupted network connectivity.
 - Observing STP behavior during topology changes and link failures.
 
+To verify if ICMP packets work, simply set-up a router and connect it to SW1 through its port Gigabit Ethernet 0/1 (g0/1), as this specific port has been configured for trunking.
 
 
