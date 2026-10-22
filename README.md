@@ -21,13 +21,12 @@ Demonstrate how STP selects optimal paths and blocks redundant links to maintain
 ---
 Configure PAgP EtherChannel between:
 
-SW1 and SW2
-SW1 and SW3
+- SW1 and SW2
+- SW1 and SW3
 
----
 Configure LACP EtherChannel between:
 
-SW2 and SW3
+- SW2 and SW3
 
 ---
 Bundle multiple physical links into logical Port-Channels and demonstrate the concept of bandwidth aggregation.
