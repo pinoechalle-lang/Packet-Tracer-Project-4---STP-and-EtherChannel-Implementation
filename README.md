@@ -1,5 +1,5 @@
 # Packet-Tracer-Project-4---STP-and-EtherChannel-Implementation
-
+![Project 4 Screenshot](https://github.com/pinoechalle-lang/Packet-Tracer-Project-3---Inter-VLAN-Routing-with-VLANs/blob/main/Screenshot%202026-10-19%20165146.png?raw=true)
 
 ##### This project simulates enterprise switching environments where redundant links are deployed between switches to eliminate single points of failure. STP prevents Layer 2 loops, while EtherChannel enables bandwidth aggregation and uninterrupted network operation during individual link failures.
 ---
