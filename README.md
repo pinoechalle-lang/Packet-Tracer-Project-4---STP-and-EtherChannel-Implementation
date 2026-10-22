@@ -10,9 +10,9 @@ Three Cisco switches (SW1, SW2, and SW3)
 Two end devices for connectivity testing
 Multiple redundant links between switches
 
-SW1 (F0/1-2) <===> (F0/1-2) SW2
-SW1 (F0/3-4) <===> (F0/1-2) SW3
-SW2 (F0/3-4) <===> (F0/3-4) SW3
+- SW1 (F0/1-2) <===> (F0/1-2) SW2
+- SW1 (F0/3-4) <===> (F0/1-2) SW3
+- SW2 (F0/3-4) <===> (F0/3-4) SW3
 
 ---
 The STP is automatic by default in the Cisco Switch 2960. However, you still need to influence the STP election.
