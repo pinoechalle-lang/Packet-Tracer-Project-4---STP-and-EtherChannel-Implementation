@@ -11,9 +11,8 @@ Two end devices for connectivity testing
 Multiple redundant links between switches
 
 ---
-Implement Spanning Tree Protocol (STP) to prevent Layer 2 switching loops.
+The STP is automatic by default in the Cisco Switch 2960. However, you still need to influence the STP election.
 
----
 Configure SW1 as the Root Bridge by modifying its bridge priority.
 Verify Root Bridge election, port roles, and port states.
 Demonstrate how STP selects optimal paths and blocks redundant links to maintain a loop-free topology.
