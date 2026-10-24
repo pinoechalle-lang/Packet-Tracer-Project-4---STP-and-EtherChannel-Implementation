@@ -66,10 +66,14 @@ show interfaces trunk
 ```
 
 Perform connectivity and failover testing by:
-- Verifying end-to-end communication between devices.
+- Verify if EtherChannel groups are in Port-Channeling mode.
+- Verify if Trunks between switches are configured properly. 
+- Verify if the right VLANs are allowed in each trunk and check for any possible data and native VLANs mismatch.
 - Disabling individual EtherChannel member links and confirming uninterrupted network connectivity.
 - Observing STP behavior during topology changes and link failures.
 
 To verify if ICMP packets work, simply set-up a router and connect it to SW1 through its port Gigabit Ethernet 0/1 (g0/1), as this specific port has been configured for trunking.
+Ensure to make a sub-interface each for VLAN 89 and 124 to accommodate its default gateway. Upon configuring the sub-interfaces, `ping` PC A from PC B and vice versa to verify that 
+inter-VLAN routing is working as intended, otherwise, it would suggest that there is an error at Layer 3 (OSI).
 
 
