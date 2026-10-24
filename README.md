@@ -55,9 +55,10 @@ Verify all configurations using appropriate commands, including:
 show spanning-tree
 show spanning-tree vlan <vlan>
 show spanning-tree summary
+show spanning-tree detail
 
 show etherchannel summary
-show etherchannel detail
+show etherchannel port-channel
 show interfaces port-channel
 
 show vlan brief
