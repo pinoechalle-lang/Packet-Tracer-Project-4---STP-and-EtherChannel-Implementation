@@ -57,6 +57,7 @@ show spanning-tree vlan <vlan>
 show spanning-tree summary
 
 show etherchannel summary
+show etherchannel detail
 show interfaces port-channel
 
 show vlan brief
